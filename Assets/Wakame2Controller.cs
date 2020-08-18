@@ -6,16 +6,19 @@ using UnityEngine.Rendering;
 public class Wakame2Controller : MonoBehaviour {
 
     // Start is called before the first frame update
-    void Start () { }
+    void Start () {
+        this.GetComponent<SpriteRenderer> ().drawMode = SpriteDrawMode.Tiled;
+    }
 
     // Update is called once per frame
     void Update () {
-        if (WakameManager.shootingWakame == true && Wakame3Controller.wakame3Pos >= -6.0f) {
-            float width = Wakame3Controller.wakame3Pos + 6.0f;
-            this.GetComponent<SpriteRenderer> ().drawMode = SpriteDrawMode.Tiled;
+        var width = Wakame3Controller.wakame3Pos + 6.0f;
+
+        if (WakameManager.shootingWakame && Wakame3Controller.wakame3Pos >= -6.0f) {
+            //wakame3のx座標に応じてTiledが伸びますの
             this.GetComponent<SpriteRenderer> ().size = new Vector2 (width, 2);
         } else {
-            this.GetComponent<SpriteRenderer> ().drawMode = SpriteDrawMode.Tiled;
+            //フレームの関係かこれ書かないとwidthが0いかないのじゃ
             this.GetComponent<SpriteRenderer> ().size = new Vector2 (0, 2);
         }
     }

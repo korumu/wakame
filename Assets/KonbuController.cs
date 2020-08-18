@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 public class KonbuController : MonoBehaviour {
-    GameObject konbu;
     public GameObject player;
 
     int[] konbuRandom = new int[10] { 1, 1, 1, 2, 2, 2, 2, 3, 3, 3 };
@@ -24,7 +23,6 @@ public class KonbuController : MonoBehaviour {
 
         this.rb2d = GetComponent<Rigidbody2D> ();
 
-        this.konbu = GameObject.Find ("konbuPrefab");
         this.player = GameObject.Find ("player");
 
         this.GetComponent<SpriteRenderer> ().sortingLayerName = "wakameOku";
@@ -85,10 +83,8 @@ public class KonbuController : MonoBehaviour {
     private void OnTriggerEnter2D (Collider2D other) {
         if (other.gameObject.tag == "Player") {
             hitPlayer = true;
-            // print ("hitPlayer = " + hitPlayer);
         } else if (other.gameObject.tag == "Floor") {
             hitFloor = true;
-            // print ("hitFloor = " + hitFloor);
         }
     }
 

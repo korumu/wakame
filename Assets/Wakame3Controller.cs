@@ -13,17 +13,32 @@ public class Wakame3Controller : MonoBehaviour {
     //wakame1を手元に戻すよ fillAmountを1→0にして…な。
     public static bool wakame1Return = false;
 
-    public static float wakame3Pos = 0;
+    // 生成位置を変えたときに問題になる危険なコード :warning:
+    //ここからしかのびね～～～～よ！
+    // いや！
+    // wakame3.transform.position = new Vector2 (-11.75f, -5.75f);
+    // この記述との一貫性持たせるのが厳しいってんの
+    //"まぁそう"黒木玄斎
+    public static float wakame3Pos = -11.75f;
+
+    private Rigidbody2D rb2d;
 
     // Start is called before the first frame update
     void Start () {
+        this.rb2d = GetComponent<Rigidbody2D> ();
+
         this.GetComponent<SpriteRenderer> ().sortingLayerName = "wakameOku";
         this.GetComponent<SpriteRenderer> ().sortingOrder = 2;
     }
 
+    public void UpdateWakame3Pos () {
+        wakame3Pos = transform.position.x;
+    }
+
     // Update is called once per frame
     void Update () {
-        wakame3Pos = transform.position.x;
+
+        UpdateWakame3Pos ();
 
         if (transform.position.x < shootingWakameDist && returnWakame == false) {
             transform.Translate (0.5f, 0, 0);
@@ -38,6 +53,12 @@ public class Wakame3Controller : MonoBehaviour {
 
         if (transform.position.x <= -6.0f && returnWakame == true) {
             wakame1Return = true;
+        }
+    }
+
+    private void OnTriggerEnter2D (Collider2D other) {
+        if (other.gameObject.tag == "Konbu") {
+            returnWakame = true;
         }
     }
 }

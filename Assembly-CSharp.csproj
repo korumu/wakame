@@ -57,7 +57,6 @@
   <ItemGroup>
      <Compile Include="Assets\Wakame1Controller.cs" />
      <Compile Include="Assets\Wakame3Controller.cs" />
-     <Compile Include="Assets\KonbuFirst.cs" />
      <Compile Include="Assets\Wakame2Controller.cs" />
      <Compile Include="Assets\KonbuController.cs" />
      <Compile Include="Assets\KonbuGenerator.cs" />

@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3883957177169901623}
   - component: {fileID: 3883957177169901579}
   m_Layer: 0
-  m_Name: konbu
-  m_TagString: Untagged
+  m_Name: konbuPre
+  m_TagString: Konbu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +111,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.034656525, y: -0.2194686}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -122,7 +122,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3280487, y: 5.741455}
+  m_Size: {x: 1.5194778, y: 4.8866835}
   m_EdgeRadius: 0
 --- !u!50 &3883957177169901579
 Rigidbody2D:
